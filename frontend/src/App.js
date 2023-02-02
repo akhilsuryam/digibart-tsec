@@ -1,13 +1,16 @@
 // import logo from './logo.svg';
 // import './App.css';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import data from './data';
+import HomeScreen from './screens/HomeScreen';
 
 function App() {
   return (
-    <div>
-      <header>
-        <a href="/">digi-bart</a>
-        {/* <img src={logo} className="App-logo" alt="logo" />
+    <BrowserRouter>
+      <div>
+        <header>
+          <a href="/">digi-bart</a>
+          {/* <img src={logo} className="App-logo" alt="logo" />
         <p>
           Edit <code>src/App.js</code> and save to reload.
         </p>
@@ -19,20 +22,33 @@ function App() {
         >
           Learn React
         </a> */}
-      </header>
-      <main>
-        <h1>Featured products</h1>
-        <div className="products">
-          {data.products.map((product) => (
-            <div classname="product" key={product.slug}>
-              <img src={product.image} alt={product.name} />
-              <p>{product.name}</p>
-              <p>{product.price}</p>
-            </div>
-          ))}
-        </div>
-      </main>
-    </div>
+        </header>
+        <main>
+          <Routes>
+            <Route path="/" element={<HomeScreen />} />
+          </Routes>
+          <h1>Featured products</h1>
+          <div className="products">
+            {data.products.map((product) => (
+              <div className="product" key={product.slug}>
+                <a href={`/product/${product.slug}`}>
+                  <img src={product.image} alt={product.name} />
+                </a>
+                <div className="product-info">
+                  <a href={`/product/${product.slug}`}>
+                    <p>{product.name}</p>
+                  </a>
+                  <p>
+                    <strong>${product.price}</strong>
+                  </p>
+                  <button>Add to Cart</button>
+                </div>
+              </div>
+            ))}
+          </div>
+        </main>
+      </div>
+    </BrowserRouter>
   );
 }
 

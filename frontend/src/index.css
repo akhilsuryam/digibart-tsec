@@ -7,11 +7,6 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
-} */
-
 header {
   background-color: #404040;
   padding: 1rem;
@@ -32,8 +27,15 @@ header a {
 .product {
   border: 1px #404040 solid;
   margin: 1rem;
+  transition: transform 0.6s;
+}
+.product:hover {
+  transform: translateY(-20px);
 }
 .product img {
-  width: 50%;
-  max-width: 100px;
+  width: 100%;
+  max-width: 300px;
+}
+.product-info {
+  padding: 1rem;
 }
