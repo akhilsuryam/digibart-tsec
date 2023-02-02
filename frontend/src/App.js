@@ -1,5 +1,6 @@
 // import logo from './logo.svg';
 // import './App.css';
+import data from './data';
 
 function App() {
   return (
@@ -19,7 +20,18 @@ function App() {
           Learn React
         </a> */}
       </header>
-      <main>List products</main>
+      <main>
+        <h1>Featured products</h1>
+        <div className="products">
+          {data.products.map((product) => (
+            <div classname="product" key={product.slug}>
+              <img src={product.image} alt={product.name} />
+              <p>{product.name}</p>
+              <p>{product.price}</p>
+            </div>
+          ))}
+        </div>
+      </main>
     </div>
   );
 }
