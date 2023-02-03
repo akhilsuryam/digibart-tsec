@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-// import data from '../data';
-import axios from 'axios';
+import data from '../data';
+//import axios from 'axios';
 function HomeScreen() {
   const [products, setProducts] = useState([]);
   useEffect(() => {
@@ -16,7 +16,7 @@ function HomeScreen() {
     <div>
       <h1>Featured products</h1>
       <div className="products">
-        {products.map((product) => (
+        {data.products.map((product) => (
           <div className="product" key={product.slug}>
             <Link to={`/product/${product.slug}`}>
               <img src={product.image} alt={product.name} />
@@ -28,7 +28,7 @@ function HomeScreen() {
               <p>
                 <strong>${product.price}</strong>
               </p>
-              <button>Add to Cart</button>
+              <button>Bid</button>
             </div>
           </div>
         ))}
